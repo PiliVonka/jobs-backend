@@ -1,0 +1,58 @@
+{
+  "name": "jobs-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check-staged": "lint-staged",
+    "start": "node -r esm index.js",
+    "dev": "nodemon -r esm -r dotenv/config index.js dotenv_config_path=.env",
+    "debug": "nodemon -r esm -r dotenv/config --inspect-brk index.js dotenv_config_path=.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiliVonka/jobs-backend.git"
+  },
+  "author": "Kadyrbek Narmamatov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PiliVonka/jobs-backend/issues"
+  },
+  "homepage": "https://github.com/PiliVonka/jobs-backend#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.6.3",
+    "app-module-path": "^2.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "connect-mongo": "^3.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
+    "helmet": "^3.18.0",
+    "joi": "^14.3.1",
+    "joi-objectid": "^2.0.0",
+    "lodash": "^4.17.11",
+    "module-alias": "^2.2.2",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.0",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "dotenv": "^8.0.0",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
