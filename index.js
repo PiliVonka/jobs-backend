@@ -2,19 +2,23 @@
 import express from "express";
 import helmet from "helmet";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import { ApolloServer } from "apollo-server-express";
 
 // Local
-import typeDefs from "./graphql/schemas";
-import resolvers from "./graphql/resolvers";
+import jobSchema from "./graphql/schemas/job.mjs";
+import jobResolver from "./graphql/resolvers/job.mjs";
 
-// Constants
+// Environment variables
+dotenv.config();
 const {
   NODE_ENV,
   MONGO_DB_URI,
   PORT,
+  ORIGIN_URL,
 } = process.env;
 
+// Express
 const app = express();
 mongoose.set("useCreateIndex", true);
 
@@ -29,10 +33,10 @@ if (NODE_ENV !== "development") {
 
 // Init ApolloServer
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  typeDefs: [jobSchema],
+  resolvers: [jobResolver],
   playground:
-    NODE_ENV.trim() !== "development"
+    NODE_ENV && NODE_ENV.trim() !== "development"
       ? false
       : {
           settings: {
@@ -48,7 +52,7 @@ server.applyMiddleware({
   app,
   cors: {
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: ORIGIN_URL,
   },
 });
 

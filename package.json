@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "check-staged": "lint-staged",
-    "start": "node -r esm index.js",
+    "start": "node dotenv/config index.js dotenv_config_path=.env",
     "dev": "nodemon -r esm -r dotenv/config index.js dotenv_config_path=.env",
     "debug": "nodemon -r esm -r dotenv/config --inspect-brk index.js dotenv_config_path=.env"
   },
