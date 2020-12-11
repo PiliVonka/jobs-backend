@@ -55,7 +55,7 @@ server.applyMiddleware({
   app,
   cors: {
     credentials: true,
-    origin: ORIGIN_URL,
+    origin: ORIGIN_URL.split(","),
   },
 });
 
