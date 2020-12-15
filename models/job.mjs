@@ -11,11 +11,15 @@ const JobSchema = new Schema({
     type: String,
     required: true
   },
-  location: {
+  phone: {
     type: String,
     required: true
   },
-  phone: {
+  jobDate: {
+    type: String,
+    required: false
+  },
+  location: {
     type: String,
     required: true
   },
