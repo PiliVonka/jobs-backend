@@ -14,6 +14,11 @@ export default {
   },
   Mutation: {
     addJob: async (root, args, context, info) => {
+      const existJob = await Job.findOne({ title: args.title, description: args.description });
+      if (existJob) {
+        throw Error("Job already exists");
+      }
+
       const job = await Job.create({
         ...args
       });
