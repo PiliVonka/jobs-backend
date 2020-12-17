@@ -5,6 +5,7 @@ export default gql`
     id: ID!
     title: String!
     description: String!
+    jobDate: String!
     phone: String!
     location: String!
     created: String!
@@ -12,10 +13,10 @@ export default gql`
 
   type Query {
     job(id: ID!): Job
-    jobs(searchValue: String!): [Job!]!
+    jobs(searchValue: String!, skip: Int): [Job!]!
   }
 
   type Mutation {
-    addJob(title: String!, description: String!, phone: String!, location: String!): Job
+    addJob(title: String!, description: String!, jobDate: String!, phone: String!, location: String!): Job
   }
 `;

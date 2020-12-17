@@ -56,8 +56,8 @@ server.applyMiddleware({
 // Connect to MongoDB and start the server
 mongoose.connect(MONGO_DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once("open", () => {
-  const port = PORT || 8080;
-  const host = HOST || "http://0.0.0.0";
+  const port = PORT;
+  const host = HOST;
   app.listen({ port, host }, () => {
     console.log(`Server running on port ${port}`);
   });
