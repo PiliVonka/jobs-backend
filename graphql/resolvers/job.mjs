@@ -8,8 +8,8 @@ export default {
         const regexObj = { $regex: args.searchValue, $options: "i" };
         filter = { title: regexObj, location: regexObj };
       }
-      console.log({ args });
-      const jobs = await Job.find(filter).sort({ created: -1 }).skip(args.skip).limit(5);
+      const jobs = await Job.find(filter).sort({ created: -1 }).skip(args.skip).limit(10);
+      console.log({ jobs });
       return jobs;
     },
     job: (root, args, context, info) => Job.findById(args.id),
