@@ -5,10 +5,14 @@ export default {
     jobs: async (root, args, context, info) => {
       let filter = {};
       if (args.searchValue) {
-        const regexObj = { $regex: args.searchValue, $options: "i" };
-        filter = { title: regexObj, location: regexObj };
+        filter = { $text: { $search: args.searchValue } };
       }
-      const jobs = await Job.find(filter).sort({ created: -1 }).skip(args.skip).limit(10);
+      const skip = args.skip ? args.skip : 0;
+      const limit = args.limit ? args.limit : 10;
+      const jobs = await Job
+        .find(filter)
+        .sort({ created: -1 })
+        .skip(skip).limit(limit);
       console.log({ jobs });
       return jobs;
     },

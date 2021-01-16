@@ -13,7 +13,7 @@ export default gql`
 
   type Query {
     job(id: ID!): Job
-    jobs(searchValue: String!, skip: Int): [Job!]!
+    jobs(searchValue: String!, skip: Int, limit: Int): [Job!]!
   }
 
   type Mutation {
